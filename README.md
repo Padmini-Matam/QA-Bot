@@ -8,6 +8,8 @@
 ![Gradio](https://img.shields.io/badge/UI-Gradio-orange)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
+🚀 **Live Demo:** [Try QueryVault on Hugging Face Spaces!](https://huggingface.co/spaces/Padmini1/queryvault)
+
 ---
 
 ## 🧠 How It Works
