@@ -133,6 +133,25 @@ Open `http://127.0.0.1:7860` in your browser.
 
 ---
 
+## 🌍 Sharing & Deployment
+
+### Temporary Public Link (The Easiest Way)
+Because this app uses Gradio, you don't even need to deploy it to share it with your friends or recruiters! 
+When you run `python app.py` on your computer, Gradio automatically generates a temporary public URL (e.g., `https://1234abcd.gradio.live`). 
+- Simply copy that `gradio.live` link from your terminal and send it to anyone!
+- *Note: This link only works while the terminal is actively running on your PC.*
+
+### Permanent Free Deployment (Hugging Face Spaces)
+If you want the app to be available 24/7 without keeping your computer on, you can deploy it for free using Hugging Face:
+1. Go to [Hugging Face Spaces](https://huggingface.co/spaces) and create a free account.
+2. Click **Create new Space**.
+3. Enter a Space name, choose **Gradio** as the Space SDK, and click Create.
+4. In the Settings tab of your new Space, go to **Variables and secrets**. Add your three `.env` variables as **Secrets** (`WATSONX_API_KEY`, `WATSONX_PROJECT_ID`, and `WATSONX_URL`).
+5. Upload all the files from this repository (except `venv` and `.env`) directly into the "Files" tab of your Space.
+6. The Space will automatically build and launch your app permanently!
+
+---
+
 ## 🧩 Component Decisions
 
 | Component | Choice | Why |
