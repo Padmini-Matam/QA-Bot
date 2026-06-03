@@ -18,7 +18,6 @@ QueryVault implements a full **Retrieval-Augmented Generation (RAG)** pipeline:
 
 ![QueryVault Detailed Workflow](assets/workflow.png)
 
-*(Please make sure to save your workflow image as `workflow.png` inside an `assets` folder in this repository)*
 
 ### ASCII Representation:
 ```
