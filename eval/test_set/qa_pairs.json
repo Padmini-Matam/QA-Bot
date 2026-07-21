@@ -1,0 +1,146 @@
+[
+    {
+        "id": "acad_1",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What is the primary architecture proposed in the paper?",
+        "ground_truth": "The primary architecture proposed is the Transformer, which is based solely on attention mechanisms, dispensing with recurrence and convolutions entirely."
+    },
+    {
+        "id": "acad_2",
+        "pdf_file": "academic_paper.pdf",
+        "question": "How many identical layers are in the encoder of the base model?",
+        "ground_truth": "The encoder is composed of a stack of N = 6 identical layers."
+    },
+    {
+        "id": "acad_3",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What is the equation for Scaled Dot-Product Attention?",
+        "ground_truth": "Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) V"
+    },
+    {
+        "id": "acad_4",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What optimizer was used for training the model?",
+        "ground_truth": "The Adam optimizer was used."
+    },
+    {
+        "id": "acad_5",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What dropout rate was applied to the output of each sub-layer?",
+        "ground_truth": "A dropout rate of P_drop = 0.1 was applied."
+    },
+    {
+        "id": "acad_6",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What BLEU score did the big Transformer model achieve on the WMT 2014 English-to-French translation task?",
+        "ground_truth": "The big model achieved a BLEU score of 41.8."
+    },
+    {
+        "id": "acad_7",
+        "pdf_file": "academic_paper.pdf",
+        "question": "Why is self-attention computationally more efficient than recurrent layers?",
+        "ground_truth": "Self-attention is computationally more efficient than recurrent layers when the sequence length is smaller than the representation dimensionality because it reduces the total computational complexity per layer."
+    },
+    {
+        "id": "acad_8",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What regularization techniques were employed during training?",
+        "ground_truth": "The training employed Residual Dropout and Label Smoothing."
+    },
+    {
+        "id": "leg_1",
+        "pdf_file": "legal_policy.pdf",
+        "question": "According to Article 1, how are all human beings born?",
+        "ground_truth": "All human beings are born free and equal in dignity and rights."
+    },
+    {
+        "id": "leg_2",
+        "pdf_file": "legal_policy.pdf",
+        "question": "What does Article 3 state everyone has the right to?",
+        "ground_truth": "Everyone has the right to life, liberty and security of person."
+    },
+    {
+        "id": "leg_3",
+        "pdf_file": "legal_policy.pdf",
+        "question": "Is slavery permitted under any circumstances according to the Declaration?",
+        "ground_truth": "No, no one shall be held in slavery or servitude; slavery and the slave trade shall be prohibited in all their forms."
+    },
+    {
+        "id": "leg_4",
+        "pdf_file": "legal_policy.pdf",
+        "question": "What does Article 5 prohibit?",
+        "ground_truth": "Article 5 prohibits torture and cruel, inhuman or degrading treatment or punishment."
+    },
+    {
+        "id": "leg_5",
+        "pdf_file": "legal_policy.pdf",
+        "question": "What right does Article 18 protect?",
+        "ground_truth": "Article 18 protects the right to freedom of thought, conscience and religion."
+    },
+    {
+        "id": "leg_6",
+        "pdf_file": "legal_policy.pdf",
+        "question": "According to Article 23, what is everyone's right regarding work?",
+        "ground_truth": "Everyone has the right to work, to free choice of employment, to just and favourable conditions of work and to protection against unemployment."
+    },
+    {
+        "id": "leg_7",
+        "pdf_file": "legal_policy.pdf",
+        "question": "Does everyone have the right to education?",
+        "ground_truth": "Yes, everyone has the right to education. Education shall be free, at least in the elementary and fundamental stages."
+    },
+    {
+        "id": "leg_8",
+        "pdf_file": "legal_policy.pdf",
+        "question": "What is the purpose of education according to Article 26?",
+        "ground_truth": "Education shall be directed to the full development of the human personality and to the strengthening of respect for human rights and fundamental freedoms."
+    },
+    {
+        "id": "tech_1",
+        "pdf_file": "technical_manual.pdf",
+        "question": "What is the primary conclusion of the paper regarding discovery harnesses?",
+        "ground_truth": "The primary conclusion is that no fixed harness is reliably superior across the evaluated model-problem pairs, and harness choice is better viewed as a hyperparameter."
+    },
+    {
+        "id": "tech_2",
+        "pdf_file": "technical_manual.pdf",
+        "question": "How many LLM rollouts were used to evaluate the budget-matched harnesses?",
+        "ground_truth": "More than 3.1 million LLM rollouts were used."
+    },
+    {
+        "id": "tech_3",
+        "pdf_file": "technical_manual.pdf",
+        "question": "What specific property of the search process predicts final performance?",
+        "ground_truth": "Early discovery progress predicts final performance."
+    },
+    {
+        "id": "tech_4",
+        "pdf_file": "technical_manual.pdf",
+        "question": "Instead of fixed harness selection, what approach does the paper motivate?",
+        "ground_truth": "The paper motivates shifting from fixed harness selection to online adaptation guided by early performance."
+    },
+    {
+        "id": "tech_5",
+        "pdf_file": "technical_manual.pdf",
+        "question": "What are two examples of autonomous discovery systems mentioned as general-purpose harnesses?",
+        "ground_truth": "OpenEvolve and TTT-Discover."
+    },
+    {
+        "id": "tech_6",
+        "pdf_file": "technical_manual.pdf",
+        "question": "How many model-problem pairs were used to systematically evaluate the budget-matched harnesses?",
+        "ground_truth": "12 model-problem pairs were used."
+    },
+    {
+        "id": "tech_7",
+        "pdf_file": "technical_manual.pdf",
+        "question": "What happens in the budget-matched adaptive-allocation experiment?",
+        "ground_truth": "It starts multiple harnesses, prunes weak partial runs, and reallocates compute to stronger survivors."
+    },
+    {
+        "id": "tech_8",
+        "pdf_file": "technical_manual.pdf",
+        "question": "Where are the code, data, and run pools released for this research?",
+        "ground_truth": "They are available at https://github.com/akshat57/harness-generalization."
+    }
+]
