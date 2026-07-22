@@ -1,3 +1,15 @@
+---
+title: QueryVault
+emoji: 💬
+colorFrom: blue
+colorTo: green
+sdk: gradio
+sdk_version: "4.36.1"
+app_file: app.py
+pinned: false
+license: mit
+---
+
 # 📄 QueryVault — PDF Question Answering Bot
 
 > Ask questions about any PDF document and get intelligent, context-aware answers powered by **Groq API (Llama-3.3 70B Instruct)**, **LangChain RAG**, and an **ephemeral ChromaDB**.
