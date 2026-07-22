@@ -198,7 +198,7 @@ def process_pdf_and_query(file_path: str, question: str) -> str:
     """
     if not file_path:
         return "Please upload a PDF file first."
-    if not question.strip():
+    if not question or not str(question).strip():
         return "Please enter a question."
 
     try:
