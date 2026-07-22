@@ -48,7 +48,7 @@ with gr.Blocks(
         """
         # 📄 QueryVault — PDF Question Answering Bot
         Upload a PDF document, ask any question about its content, and get an
-        intelligent answer powered by **IBM Watsonx (Mixtral 8x7B)** and **LangChain RAG**.
+        intelligent answer powered by **Groq API (Llama-3.3 70B)** and **LangChain RAG**.
         """
     )
 
@@ -84,9 +84,9 @@ with gr.Blocks(
         ---
         **How it works:**
         1. Your PDF is parsed and split into chunks.
-        2. Each chunk is converted to a semantic embedding via Watsonx.
+        2. Each chunk is converted to a semantic embedding via HuggingFace Local Embeddings (`all-MiniLM-L6-v2`).
         3. The most relevant chunks are retrieved using ChromaDB.
-        4. Mixtral 8x7B reads the context and generates a precise answer.
+        4. Llama-3.3 70B reads the context and generates a precise answer.
         """
     )
 

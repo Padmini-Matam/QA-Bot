@@ -1,10 +1,10 @@
 # 📄 QueryVault — PDF Question Answering Bot
 
-> Ask questions about any PDF document and get intelligent, context-aware answers powered by **IBM Watsonx (Llama-3.3 70B Instruct)**, **LangChain RAG**, and an **ephemeral ChromaDB**.
+> Ask questions about any PDF document and get intelligent, context-aware answers powered by **Groq API (Llama-3.3 70B Instruct)**, **LangChain RAG**, and an **ephemeral ChromaDB**.
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
 ![LangChain](https://img.shields.io/badge/LangChain-RAG-green)
-![IBM Watsonx](https://img.shields.io/badge/IBM-Watsonx.ai-blue)
+![Groq](https://img.shields.io/badge/Groq-API-orange)
 ![Gradio](https://img.shields.io/badge/UI-Gradio-orange)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
@@ -30,7 +30,7 @@ PyPDFLoader  ──── loads raw text from all pages
 RecursiveCharacterTextSplitter  ──── splits into ~1000-char chunks
     │
     ▼
-WatsonxEmbeddings (Slate 30M v2)  ──── converts each chunk to a vector
+HuggingFace Local Embeddings  ──── converts each chunk to a vector
     │
     ▼
 ChromaDB  ──── stores and indexes all vectors in-memory (per PDF)
@@ -39,7 +39,7 @@ ChromaDB  ──── stores and indexes all vectors in-memory (per PDF)
 User Question ──► similarity search ──► top-3 relevant chunks retrieved
     │
     ▼
-Llama-3.3 70B Instruct (ChatWatsonx)  ──── reads context + question → generates answer
+Llama-3.3 70B Instruct (ChatGroq)  ──── reads context + question → generates answer
     │
     ▼
 Gradio UI  ──── displays the answer to the user
@@ -96,24 +96,20 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Add your IBM Watsonx credentials
+### 4. Add your Groq API credentials
 
-```bash
-cp .env.example .env
+To run this app locally, you need a free API key from Groq:
+
+1. Create a file named `.env` in the root folder.
+2. Open the `.env` file and add the following lines:
+
+```env
+GROQ_API_KEY=your_groq_api_key
 ```
 
-Open `.env` and fill in:
-
-```
-WATSONX_API_KEY=your_ibm_cloud_api_key
-WATSONX_PROJECT_ID=your_project_id
-WATSONX_URL=https://us-south.ml.cloud.ibm.com
-```
-
-> **How to get credentials:**
-> 1. Sign up at [ibm.com/watsonx](https://www.ibm.com/watsonx)
-> 2. Create a project in Watsonx.ai Studio
-> 3. Generate an API key from IBM Cloud → Manage → Access (IAM)
+> **How to get a free key:**
+> 1. Sign up at [console.groq.com](https://console.groq.com/)
+> 2. Go to API Keys and generate a new key
 
 ### 5. Run the app
 
@@ -147,7 +143,7 @@ If you want the app to be available 24/7 without keeping your computer on, you c
 1. Go to [Hugging Face Spaces](https://huggingface.co/spaces) and create a free account.
 2. Click **Create new Space**.
 3. Enter a Space name, choose **Gradio** as the Space SDK, and click Create.
-4. In the Settings tab of your new Space, go to **Variables and secrets**. Add your three `.env` variables as **Secrets** (`WATSONX_API_KEY`, `WATSONX_PROJECT_ID`, and `WATSONX_URL`).
+4. In the Settings tab of your new Space, go to **Variables and secrets**. Add your `.env` variable as a **Secret** (`GROQ_API_KEY`).
 5. Upload all the files from this repository (except `venv` and `.env`) directly into the "Files" tab of your Space.
 6. The Space will automatically build and launch your app permanently!
 
@@ -159,7 +155,7 @@ If you want the app to be available 24/7 without keeping your computer on, you c
 |---|---|---|
 | Document Loader | `PyPDFLoader` | Handles multi-page PDFs reliably |
 | Text Splitter | `RecursiveCharacterTextSplitter` | Preserves context at chunk boundaries |
-| Embedding Model | IBM Slate 30M English v2 | Optimized for semantic similarity; free via Watsonx |
+| Embedding Model | HuggingFace `all-MiniLM-L6-v2` | Optimized for semantic similarity; runs locally for free |
 | Vector Database | ChromaDB (In-Memory) | Lightweight, completely isolates each PDF upload |
 | LLM | Llama-3.3 70B Instruct | State-of-the-art instruction-following; powerful reasoning |
 | Orchestration | LangChain | Clean pipeline abstraction, easy to extend |
@@ -193,7 +189,7 @@ If you want the app to be available 24/7 without keeping your computer on, you c
 ## 📚 Tech Stack
 
 - [LangChain](https://docs.langchain.com) — RAG pipeline orchestration
-- [IBM Watsonx.ai](https://www.ibm.com/watsonx) — LLM and embedding models
+- [Groq](https://groq.com/) — Lightning-fast LLM inference
 - [ChromaDB](https://www.trychroma.com) — Vector database
 - [Gradio](https://www.gradio.app) — Web UI
 - [PyPDF](https://pypdf.readthedocs.io) — PDF parsing
