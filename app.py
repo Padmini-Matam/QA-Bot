@@ -41,7 +41,8 @@ def answer_question(pdf_file, question: str) -> str:
 # ---------------------------------------------------------------------------
 
 with gr.Blocks(
-    title="QueryVault – PDF QA Bot"
+    title="QueryVault – PDF QA Bot",
+    theme=gr.themes.Soft()
 ) as demo:
 
     gr.Markdown(
@@ -92,4 +93,4 @@ with gr.Blocks(
 
 
 if __name__ == "__main__":
-    demo.launch(share=True, theme=gr.themes.Soft())
+    demo.launch(share=True)
