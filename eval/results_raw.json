@@ -1,1 +1,194 @@
-[]
+[
+    {
+        "id": "acad_1",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What is the primary architecture proposed in the paper?",
+        "ground_truth": "The primary architecture proposed is the Transformer, which is based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+        "prediction": "The primary architecture proposed in the paper is the Transformer model, which follows an encoder-decoder structure with stacked self-attention and point-wise, fully connected layers for both the encoder and decoder. The encoder and decoder stacks are composed of identical layers, each with two sub-layers: a multi-head self-attention mechanism and a simple, position-wise fully connected feed-forward network.",
+        "latency_seconds": 11.53510069847107
+    },
+    {
+        "id": "acad_2",
+        "pdf_file": "academic_paper.pdf",
+        "question": "How many identical layers are in the encoder of the base model?",
+        "ground_truth": "The encoder is composed of a stack of N = 6 identical layers.",
+        "prediction": "The encoder is composed of a stack of N = 6 identical layers.",
+        "latency_seconds": 9.910523176193237
+    },
+    {
+        "id": "acad_3",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What is the equation for Scaled Dot-Product Attention?",
+        "ground_truth": "Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) V",
+        "prediction": "The equation for Scaled Dot-Product Attention is:\n\nAttention(Q, K, V) = softmax(QK^T / \u221adk) * V\n\nwhere Q, K, and V are matrices representing the queries, keys, and values, respectively, and dk is the dimension of the keys.",
+        "latency_seconds": 10.936663150787354
+    },
+    {
+        "id": "acad_4",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What optimizer was used for training the model?",
+        "ground_truth": "The Adam optimizer was used.",
+        "prediction": "The Adam optimizer was used for training the model, with specific hyperparameters: \u03b21 = 0.9, \u03b22 = 0.98, and \u03f5 = 10\u22129. The learning rate was varied over the course of training according to a specific formula, with warmup_steps = 4000.",
+        "latency_seconds": 10.454904317855835
+    },
+    {
+        "id": "acad_5",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What dropout rate was applied to the output of each sub-layer?",
+        "ground_truth": "A dropout rate of P_drop = 0.1 was applied.",
+        "prediction": "I don't have enough information from the document to answer that. The document mentions that dropout was applied to the output of each sub-layer, but it does not specify the dropout rate.",
+        "latency_seconds": 10.219835042953491
+    },
+    {
+        "id": "acad_6",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What BLEU score did the big Transformer model achieve on the WMT 2014 English-to-French translation task?",
+        "ground_truth": "The big model achieved a BLEU score of 41.8.",
+        "prediction": "The big Transformer model achieved a BLEU score of 41.0 on the WMT 2014 English-to-French translation task.",
+        "latency_seconds": 10.534609317779541
+    },
+    {
+        "id": "acad_7",
+        "pdf_file": "academic_paper.pdf",
+        "question": "Why is self-attention computationally more efficient than recurrent layers?",
+        "ground_truth": "Self-attention is computationally more efficient than recurrent layers when the sequence length is smaller than the representation dimensionality because it reduces the total computational complexity per layer.",
+        "prediction": "Self-attention is computationally more efficient than recurrent layers because it connects all positions with a constant number of sequentially executed operations, whereas a recurrent layer requires O(n) sequential operations. This means that self-attention layers are faster than recurrent layers when the sequence length n is smaller than the representation dimensionality d, which is often the case in machine translation tasks. Additionally, self-attention can be parallelized more easily, as measured by the minimum number of sequential operations required, making it more efficient for tasks involving long sequences.",
+        "latency_seconds": 10.718207597732544
+    },
+    {
+        "id": "acad_8",
+        "pdf_file": "academic_paper.pdf",
+        "question": "What regularization techniques were employed during training?",
+        "ground_truth": "The training employed Residual Dropout and Label Smoothing.",
+        "prediction": "The document mentions that three types of regularization were employed during training, but it does not specify what those types are. The relevant section is titled \"5.4 Regularization\" and it starts with \"We employ three types of regularization during training:\", but the actual types of regularization are not listed in the provided context.",
+        "latency_seconds": 10.303649425506592
+    },
+    {
+        "id": "leg_1",
+        "pdf_file": "legal_policy.pdf",
+        "question": "According to Article 1, how are all human beings born?",
+        "ground_truth": "All human beings are born free and equal in dignity and rights.",
+        "prediction": "According to Article 1, all human beings are born free and equal in dignity and rights. They are also endowed with reason and conscience.",
+        "latency_seconds": 7.773603200912476
+    },
+    {
+        "id": "leg_2",
+        "pdf_file": "legal_policy.pdf",
+        "question": "What does Article 3 state everyone has the right to?",
+        "ground_truth": "Everyone has the right to life, liberty and security of person.",
+        "prediction": "Article 3 states that everyone has the right to life, liberty, and the security of person.",
+        "latency_seconds": 7.34829306602478
+    },
+    {
+        "id": "leg_3",
+        "pdf_file": "legal_policy.pdf",
+        "question": "Is slavery permitted under any circumstances according to the Declaration?",
+        "ground_truth": "No, no one shall be held in slavery or servitude; slavery and the slave trade shall be prohibited in all their forms.",
+        "prediction": "No, according to the Declaration, slavery is not permitted under any circumstances. Article 4 states: \"No one shall be held in slavery or servitude; slavery and the slave trade shall be prohibited in all their forms.\"",
+        "latency_seconds": 8.059935569763184
+    },
+    {
+        "id": "leg_4",
+        "pdf_file": "legal_policy.pdf",
+        "question": "What does Article 5 prohibit?",
+        "ground_truth": "Article 5 prohibits torture and cruel, inhuman or degrading treatment or punishment.",
+        "prediction": "Article 5 prohibits torture or cruel, inhuman or degrading treatment or punishment.",
+        "latency_seconds": 7.743548393249512
+    },
+    {
+        "id": "leg_5",
+        "pdf_file": "legal_policy.pdf",
+        "question": "What right does Article 18 protect?",
+        "ground_truth": "Article 18 protects the right to freedom of thought, conscience and religion.",
+        "prediction": "Article 18 protects the right to freedom of thought, conscience, and religion. This includes the freedom to change one's religion or belief, and the freedom to manifest one's religion or belief in teaching, practice, worship, and observance, either alone or in community with others, in public or private.",
+        "latency_seconds": 8.091245651245117
+    },
+    {
+        "id": "leg_6",
+        "pdf_file": "legal_policy.pdf",
+        "question": "According to Article 23, what is everyone's right regarding work?",
+        "ground_truth": "Everyone has the right to work, to free choice of employment, to just and favourable conditions of work and to protection against unemployment.",
+        "prediction": "According to Article 23, everyone has the right to work, to free choice of employment, and to just and favourable conditions of work.",
+        "latency_seconds": 9.316765069961548
+    },
+    {
+        "id": "leg_7",
+        "pdf_file": "legal_policy.pdf",
+        "question": "Does everyone have the right to education?",
+        "ground_truth": "Yes, everyone has the right to education. Education shall be free, at least in the elementary and fundamental stages.",
+        "prediction": "Yes, according to Article 26, everyone has the right to education. Education shall be free, at least in the elementary and fundamental stages, and elementary education shall be compulsory. Additionally, technical and professional education shall be made generally available, and higher education shall be equally accessible to all on the basis of merit.",
+        "latency_seconds": 7.577041387557983
+    },
+    {
+        "id": "leg_8",
+        "pdf_file": "legal_policy.pdf",
+        "question": "What is the purpose of education according to Article 26?",
+        "ground_truth": "Education shall be directed to the full development of the human personality and to the strengthening of respect for human rights and fundamental freedoms.",
+        "prediction": "According to Article 26, the purpose of education is to direct it to the full development of the human personality and to the strengthening of respect for human rights and fundamental freedoms. It should also promote understanding, tolerance, and friendship among all nations, racial or religious groups, and further the activities of the United Nations for the maintenance of peace.",
+        "latency_seconds": 7.679983854293823
+    },
+    {
+        "id": "tech_1",
+        "pdf_file": "technical_manual.pdf",
+        "question": "What is the primary conclusion of the paper regarding discovery harnesses?",
+        "ground_truth": "The primary conclusion is that no fixed harness is reliably superior across the evaluated model-problem pairs, and harness choice is better viewed as a hyperparameter.",
+        "prediction": "The primary conclusion of the paper is that fixed discovery harnesses do not reliably generalize across models and problems. The results suggest that harness choice should be treated as a model- and problem-dependent hyperparameter, rather than a universally transferable recipe in automated discovery. This means that a harness that works well in one setting may not work well in another, and there is no single fixed configuration that emerges as a reliably superior choice.",
+        "latency_seconds": 18.328274250030518
+    },
+    {
+        "id": "tech_2",
+        "pdf_file": "technical_manual.pdf",
+        "question": "How many LLM rollouts were used to evaluate the budget-matched harnesses?",
+        "ground_truth": "More than 3.1 million LLM rollouts were used.",
+        "prediction": "More than 3.1 million LLM rollouts were used to evaluate the budget-matched harnesses across 30 harnesses and 12 model-problem pairs.",
+        "latency_seconds": 19.254509925842285
+    },
+    {
+        "id": "tech_3",
+        "pdf_file": "technical_manual.pdf",
+        "question": "What specific property of the search process predicts final performance?",
+        "ground_truth": "Early discovery progress predicts final performance.",
+        "prediction": "Partial-run performance, specifically the Spearman rank correlation between partial-run and final performance, predicts final performance. As the search progresses, partial-run performance becomes increasingly correlated with final performance, providing a useful signal at early checkpoints and a strong signal by the halfway point.",
+        "latency_seconds": 19.55821919441223
+    },
+    {
+        "id": "tech_4",
+        "pdf_file": "technical_manual.pdf",
+        "question": "Instead of fixed harness selection, what approach does the paper motivate?",
+        "ground_truth": "The paper motivates shifting from fixed harness selection to online adaptation guided by early performance.",
+        "prediction": "The paper motivates treating harness choice as an online, model- and problem-dependent decision, rather than a one-time design decision. This approach involves running several harnesses partially, using partial-run evaluator scores to prune less promising runs, and reallocating the remaining budget to stronger survivors. This online adaptive allocation is suggested to improve average final performance over committing to a single harness or maintaining an unpruned harness portfolio.",
+        "latency_seconds": 20.041720390319824
+    },
+    {
+        "id": "tech_5",
+        "pdf_file": "technical_manual.pdf",
+        "question": "What are two examples of autonomous discovery systems mentioned as general-purpose harnesses?",
+        "ground_truth": "OpenEvolve and TTT-Discover.",
+        "prediction": "Two examples of autonomous discovery systems mentioned are OpenEvolve and TTT-Discover.",
+        "latency_seconds": 20.52936100959778
+    },
+    {
+        "id": "tech_6",
+        "pdf_file": "technical_manual.pdf",
+        "question": "How many model-problem pairs were used to systematically evaluate the budget-matched harnesses?",
+        "ground_truth": "12 model-problem pairs were used.",
+        "prediction": "12 model-problem pairs were used to systematically evaluate the budget-matched harnesses. This was done using 4 models and 3 tasks per model.",
+        "latency_seconds": 20.66454315185547
+    },
+    {
+        "id": "tech_7",
+        "pdf_file": "technical_manual.pdf",
+        "question": "What happens in the budget-matched adaptive-allocation experiment?",
+        "ground_truth": "It starts multiple harnesses, prunes weak partial runs, and reallocates compute to stronger survivors.",
+        "prediction": "In the budget-matched adaptive-allocation experiment, several harnesses are run partially, and then partial-run evaluator scores are used to prune less promising runs. This approach is compared to choosing one harness upfront and running it fully. The experiment evaluates the effectiveness of adaptive allocation strategies, where the budget is allocated across multiple harnesses, with sequential pruning as more evidence is gathered. The goal is to determine whether online allocation across harnesses can improve over non-adaptive ways of spending the same budget.",
+        "latency_seconds": 20.274840593338013
+    },
+    {
+        "id": "tech_8",
+        "pdf_file": "technical_manual.pdf",
+        "question": "Where are the code, data, and run pools released for this research?",
+        "ground_truth": "They are available at https://github.com/akshat57/harness-generalization.",
+        "prediction": "The code, data, and run pools for this research are available at https://github.com/akshat57/harness-generalization.",
+        "latency_seconds": 20.378533363342285
+    }
+]

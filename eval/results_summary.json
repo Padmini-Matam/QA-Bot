@@ -1,0 +1,8 @@
+{
+    "num_samples": 24,
+    "exact_match": 0.041666666666666664,
+    "f1_score": 0.46732597031092643,
+    "semantic_similarity": 0.7129763687650362,
+    "latency_avg_sec": 12.801412949959436,
+    "latency_p95_sec": 20.506736862659455
+}

@@ -11,39 +11,28 @@ from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
-from langchain_ibm import ChatWatsonx, WatsonxEmbeddings
-from ibm_watsonx_ai.foundation_models.utils.enums import ModelTypes, EmbeddingTypes
-from ibm_watsonx_ai.metanames import GenTextParamsMetaNames as GenParams
-from ibm_watsonx_ai.foundation_models.utils.enums import DecodingMethods
+from langchain_groq import ChatGroq
+from langchain_huggingface import HuggingFaceEmbeddings
 
 
 # ---------------------------------------------------------------------------
 # 1. LLM Initialization
 # ---------------------------------------------------------------------------
 
-def init_llm() -> ChatWatsonx:
+def init_llm() -> ChatGroq:
     """
-    Initialize the IBM Watsonx LLM (Mixtral 8x7B Instruct).
+    Initialize the Groq LLM (Llama 3 70B Instruct).
 
     Reads credentials from environment variables:
-        WATSONX_API_KEY  – your IBM Cloud API key
-        WATSONX_PROJECT_ID – your Watsonx project ID
-        WATSONX_URL      – IBM Cloud endpoint (default provided)
+        GROQ_API_KEY  – your Groq API key
 
     Returns:
-        ChatWatsonx instance ready for inference.
+        ChatGroq instance ready for inference.
     """
-    parameters = {
-        "max_new_tokens": 500,
-        "min_new_tokens": 1,
-    }
-
-    llm = ChatWatsonx(
-        model_id="meta-llama/llama-3-3-70b-instruct",
-        url=os.getenv("WATSONX_URL", "https://us-south.ml.cloud.ibm.com"),
-        project_id=os.getenv("WATSONX_PROJECT_ID"),
-        apikey=os.getenv("WATSONX_API_KEY"),
-        params=parameters,
+    llm = ChatGroq(
+        model="llama-3.3-70b-versatile",
+        api_key=os.getenv("GROQ_API_KEY"),
+        temperature=0.1
     )
     return llm
 
@@ -52,18 +41,15 @@ def init_llm() -> ChatWatsonx:
 # 2. Embedding Model
 # ---------------------------------------------------------------------------
 
-def watsonx_embedding() -> WatsonxEmbeddings:
+def get_embedding_model() -> HuggingFaceEmbeddings:
     """
-    Initialize IBM Watsonx Embeddings (Slate 125M English).
+    Initialize HuggingFace Local Embeddings (all-MiniLM-L6-v2).
 
     Returns:
-        WatsonxEmbeddings instance.
+        HuggingFaceEmbeddings instance.
     """
-    embeddings = WatsonxEmbeddings(
-        model_id="ibm/slate-30m-english-rtrvr-v2",
-        url=os.getenv("WATSONX_URL", "https://us-south.ml.cloud.ibm.com"),
-        project_id=os.getenv("WATSONX_PROJECT_ID"),
-        apikey=os.getenv("WATSONX_API_KEY"),
+    embeddings = HuggingFaceEmbeddings(
+        model_name="all-MiniLM-L6-v2"
     )
     return embeddings
 
@@ -127,7 +113,7 @@ def create_vector_store(chunks: list) -> Chroma:
     Returns:
         Chroma vector store instance.
     """
-    embedding_model = watsonx_embedding()
+    embedding_model = get_embedding_model()
     vector_store = Chroma.from_documents(
         documents=chunks,
         embedding=embedding_model,
@@ -161,7 +147,7 @@ def get_retriever(vector_store: Chroma):
 # 7. QA Chain
 # ---------------------------------------------------------------------------
 
-def build_qa_chain(retriever, llm: ChatWatsonx):
+def build_qa_chain(retriever, llm: ChatGroq):
     """
     Build a QA chain combining the retriever and LLM using LCEL.
 
