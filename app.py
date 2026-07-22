@@ -32,7 +32,7 @@ def answer_question(pdf_file, question: str) -> str:
     if pdf_file is None:
         return "⚠️  Please upload a PDF document before asking a question."
 
-    file_path = pdf_file.name  # Gradio stores uploaded files at a temp path
+    file_path = pdf_file if isinstance(pdf_file, str) else pdf_file.name  # Gradio 4 passes string paths
     return process_pdf_and_query(file_path, question)
 
 
