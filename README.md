@@ -176,14 +176,15 @@ If you want the app to be available 24/7 without keeping your computer on, you c
 
 ---
 
-## 📊 Performance (on structured PDFs)
+## 📊 Capabilities & Performance
 
-| Metric | Score |
+| Feature | Details |
 |---|---|
-| Exact Match Rate | 97% |
-| F1 Score | 0.9862 |
-| Semantic Similarity | 0.9936 |
-| Avg. Response Time | < 3 seconds |
+| **Model** | Llama-3.3 70B (State-of-the-art open source model) |
+| **Response Time** | Typically < 3 seconds (Powered by Groq LPUs) |
+| **Context Window** | Retrieves top 10 most relevant chunks per query |
+| **Document Size** | Tested with PDFs up to 50+ pages seamlessly |
+| **Accuracy** | High context-awareness; strictly answers based on provided document |
 
 ---
 
