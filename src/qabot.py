@@ -207,6 +207,8 @@ def process_pdf_and_query(file_path: str, question: str) -> str:
 
         # Step 2 – Split
         chunks = split_documents(documents)
+        if not chunks:
+            return "Error: Could not extract any readable text from the PDF. It might be a scanned image or password-protected."
 
         # Step 3 & 4 – Embed + Store
         vector_store = create_vector_store(chunks)
