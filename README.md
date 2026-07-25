@@ -181,7 +181,7 @@ If you want the app to be available 24/7 without keeping your computer on, you c
 | Feature | Details |
 |---|---|
 | **Model** | Llama-3.3 70B (State-of-the-art open source model) |
-| **Response Time** | Typically < 3 seconds (Powered by Groq LPUs) |
+| **Response Time** | ~12.8 seconds end-to-end (Includes PDF chunking, embedding, retrieval, and Groq LLM inference) |
 | **Context Window** | Retrieves top 10 most relevant chunks per query |
 | **Document Size** | Tested with PDFs up to 50+ pages seamlessly |
 | **Accuracy** | High context-awareness; strictly answers based on provided document |
